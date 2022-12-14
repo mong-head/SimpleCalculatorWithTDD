@@ -27,9 +27,9 @@ public class Calculator {
 //        return ArithmeticOperator.calculate(operand1,operator,operand2);
 //    }
 
-    // #3 : 위임O interface
+    // #3 : 위임O interface 구현
     private static final List<NewArithmeticOperator> arithmeticOperatorList = List.of(new AdditionOperator(), new SubtractionOperator(), new MultiplicationOperator(), new DivisionOperator());
-    public static int calculate(int operand1, String operator, int operand2) {
+    public static int calculate(PositiveNumber operand1, String operator, PositiveNumber operand2) {
         return arithmeticOperatorList.stream()
                 .filter(newArithmeticOperator -> newArithmeticOperator.supports(operator))
                 .map(arithmeticOperator -> arithmeticOperator.calculate(operand1, operand2))
